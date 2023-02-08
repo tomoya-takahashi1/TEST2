@@ -15,11 +15,12 @@ start.addEventListener('click', ()  => {
   
   timerId = setInterval(() => {
       const nowMs = Date.now();
-       elapsedMs = nowMs - startMs;
-      const ms = elapsedMs % 10;
+      const elapsedMs = nowMs - startMs;
+      
+      const ms = elapsedMs % 1000;
       const s  = Math.floor(elapsedMs / 1000) % 60;
       const m  = Math.floor(elapsedMs / 1000 / 60) % 60;
-      const h  = Math.floor(elapsedMs / 1000 / 60 / 60) % 60;
+      const h  = Math.floor(elapsedMs / 1000 / 60 / 60) ;
       
       const formattedMs = ms.toString().padStart(1,'0');
       const formattedS  =  s.toString().padStart(1,'0');
@@ -30,7 +31,7 @@ start.addEventListener('click', ()  => {
       document.getElementById("stop").disabled = false;
       document.getElementById("reset").disabled = false;
      
-      
+  
      // stopwatch.textContent = formattedM + ':' + formattedS + '.' + formattedMs;
       stopwatch.textContent = `${formattedH}:${formattedM}:${formattedS}.${formattedMs}`;
   },10);
